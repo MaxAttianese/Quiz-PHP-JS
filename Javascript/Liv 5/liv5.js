@@ -15,3 +15,44 @@ Nicholas Runolfsdottir V
 Glenna Reichert
 Clementina DuBuque
 */
+
+// Codice:
+
+import fetch from 'node-fetch';
+
+console.log(fetch);
+
+function getData(url) {
+
+    fetch(url)
+        .then((response) => response.json())
+        .then((data) => data.forEach((el) => {
+            console.log(el.name);
+        }))
+        .catch((err) => { console.log(err); })
+}
+
+getData("https://jsonplaceholder.typicode.com/users");
+
+// Metodo alternativo
+
+/*async function getData(url) {
+
+    let data = [];
+
+    try {
+
+        let response = await fetch(url);
+        data = await response.json();
+
+    } catch (error) {
+        console.log('Si è verificato un Errore')      
+    }
+
+    data.forEach((el) => {
+        console.log(el.name);
+    });
+
+}
+
+getData("https://jsonplaceholder.typicode.com/users");*/

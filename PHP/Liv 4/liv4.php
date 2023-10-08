@@ -81,3 +81,18 @@ EOF;
 */
 
 // Codice:
+
+require './PazienteClass.php';
+
+$result = [];
+
+$dom = new DOMDocument();
+$dom->loadXML($xml);
+
+$pazienti = $dom->getElementsByTagName('paziente');
+
+foreach ($pazienti as $paziente) {
+  array_push($result, new Paziente($paziente));
+}
+
+print_r(json_encode($result, JSON_PRETTY_PRINT));

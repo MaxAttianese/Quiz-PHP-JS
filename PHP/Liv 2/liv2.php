@@ -20,3 +20,19 @@ Array
 */
 
 // Codice:
+
+$numbers = [];
+
+foreach($persone as $persona) {
+
+    $persona = explode(" ",$persona);
+
+    foreach($persona as $number) {
+
+        if(str_contains($number, "3")){
+            array_push($numbers, $number);
+        }
+    }
+}
+
+print_r($numbers);

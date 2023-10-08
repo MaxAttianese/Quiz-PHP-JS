@@ -35,3 +35,10 @@ const lista = [
 */
 
 // Codice:
+
+let order = lista.sort((left, right) => {
+
+    return left.punteggio - right.punteggio;
+})
+
+console.log(order);

@@ -18,6 +18,7 @@ $html = <<<EOF
                     <td>Mario</td>
                     <td>Rossi</td>
                 </tr>
+            </table>
         </body>
     </html>
 EOF;
@@ -32,3 +33,17 @@ Array
 
 
 // Codice:
+
+$dom = new DOMDocument;
+$dom->loadHTML($html);
+
+$table = $dom->getElementsByTagName('table');
+
+$keys = $table[0]->firstElementChild;
+$elements = $table[0]->lastElementChild;
+
+$result[$keys->firstElementChild->nodeValue] = $elements->firstElementChild->nodeValue;
+$result[$keys->lastElementChild->nodeValue] = $elements->lastElementChild->nodeValue;
+
+
+var_dump($result);
