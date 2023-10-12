@@ -13,20 +13,41 @@ FINE
 
 // Codice:
 
-let count = 5;
+function countdown(count) {
 
-let timer = setInterval(() => {
+    return new Promise((resolve, reject) => {
 
-    if(count > 0) {
+        let timer = setInterval(() => {
 
-        console.log(count);
-        count--;
+            if(count < 0) {
+                reject('Il valore per un conto alla rovescia deve essere maggiore di 0');
+                return;
+            }
 
-    }
-    if(count <= 0) {
+            if(count >= 0) {
+        
+                console.log(count);
+                count--;
+        
+            }
+            if(count == 0) {
+                
+                console.log(count);        
+                clearInterval(timer);
+                resolve('Fine');
+            }
+        },1000);
 
-        console.log(count);
-        console.log('Fine');
-        clearInterval(timer);
-    }
-},1000);
+    })
+    
+}
+
+countdown(5)
+.then((result) => {
+    console.log(result);
+})
+.catch((error) => {
+    console.log(error);
+})
+
+

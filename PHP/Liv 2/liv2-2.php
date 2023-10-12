@@ -21,11 +21,9 @@ $result = [];
 
 foreach($persone as $indirizzo) {
 
-    if(preg_match( '/- (.+) /', $indirizzo, $matches)) {
+    if(preg_match( '/- ([^,]+),/', $indirizzo, $matches)) {
 
-        $street = explode(",", $matches[1]);
-
-        $result[] = $street[0];
+        $result[] = $matches[1];
     }
 }
 print_r($result);

@@ -22,10 +22,10 @@ Playing...Spotify
 
 // Codice:
 
-class Youtube extends Player implements IPlayer {
+class Youtube extends Player {
 }
 
-class Spotify extends Player implements IPlayer {
+class Spotify extends Player {
 }
 
 $youtube = new Youtube;
