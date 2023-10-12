@@ -20,8 +20,6 @@ Clementina DuBuque
 
 import fetch from 'node-fetch';
 
-console.log(fetch);
-
 function getData(url) {
 
     fetch(url)
